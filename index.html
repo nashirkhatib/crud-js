@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h2 style="height: 10%;">Assigment no :1</h2>
+        </header>
+        <h3>Register</h3>
+        <form class="container" id="registrationForm">
+            <div class="field">
+                <label for="fname">First Name :</label><br>
+                <input type="text" id="fname" name="fname" placeholder="fisrt name" />
+            </div>
+
+            <div class="field">
+                <label for="lname">Last Name :</label><br>
+                <input type="text" id="lname" name="lname" placeholder="last name" />
+            </div>
+
+            <div class="field">
+                <label for="email">Email ID :</label><br>
+                <input type="email" id="email" name="email" placeholder="email" />
+            </div>
+
+            <div class="field">
+                <label for="sex">Sex </label><br>
+                <input type="radio" name="gender" value="male" onclick="getvalue(this.value)" /> Male
+                <input type="radio" name="gender" value="female" onclick="getvalue(this.value)" /> Female
+                <input type="radio" name="gender" value="other" onclick="getvalue(this.value)" /> Other
+            </div>
+
+            <div class="field">
+                <label for="favcolor">Favorite Color:</label>
+                <div>
+                    <input type="color" id="favcolor" name="favcolor" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="employed">Employed</label>
+                <div>
+                    <input type="checkbox" id="employed" name="employed" value="employed" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="notes">Notes :</label>
+                <div>
+                    <textarea name="notes" id="notes" rows="4"></textarea>
+                </div>
+
+                <button>Submit</button>
+                <input type="reset">Clear Values</input>
+            </div>
+        </form>
+        <h3 style="text-align: center;">List</h3>
+        <!-- <div class="list">
+
+        </div>
+        -->
+        <ul>
+
+        </ul>
+        <div class="output">
+            <ol id="outputlist">
+
+            </ol>
+        </div>
+        <footer style="height: 10%;">
+            <h5>Developed by Nashir</h5>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
