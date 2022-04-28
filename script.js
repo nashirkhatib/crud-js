@@ -1,112 +1,61 @@
-/*const btn = document.getElementById('#sub');
-const fname = document.getElementById('#fname');
-const list = document.querySelector('.list');
-
-btn.addEventListener('click', () => {
-
-    const fn = fname.value;
-    // const listItem = document.createElement('li');
-    const intemText = document.createElement('p');
-
-    list.appendChild(intemText);
-    intemText.textContent = fn;
-
-})
-*/
-/*
-const list = document.querySelector('ul');
-const input = document.querySelector('#fname');
-const button = document.querySelector('button');
-
-button.addEventListener('click', () => {
-    const myItem = input.value;
-    input.value = '';
-
-    const listItem = document.createElement('li');
-    const listText = document.createElement('span');
-    const listBtn = document.createElement('button');
-
-    listItem.appendChild(listText);
-    listText.textContent = myItem;
-});
-
-input.focus();
-*/
-const button = document.querySelector('button');
-button.addEventListener('click', (e) => {
+const submit = document.getElementById('submit');
+submit.addEventListener('click', (e) => {
     e.preventDefault();
+    //var inputValues;
+    //getValues(inputValues);
+    var sex;
+    var firstName = document.getElementById('fname').value;
+    var lastName = document.getElementById('lname').value;
 
-    var fname = document.getElementById('fname').value;
-    var lname = document.getElementById('lname').value;
-
-    var email = document.getElementById('email').value;
-    //    document.getElementById('email').style = "color: Blue";
-    var favcolor = document.getElementById('favcolor').value;
-
-    var ele = document.getElementsByName('gender');
-    for (i = 0; i < ele.length; i++) {
-        if (ele[i].checked)
-            var sex = ele[i].value;
+    var emailAddress = document.getElementById('email').value;
+    var inputColor = document.getElementById('favcolor').value;
+    var inputGender = document.getElementsByName('gender');
+    for (i = 0; i < inputGender.length; i++) {
+        if (inputGender[i].checked)
+            sex = inputGender[i].value;
     }
-    var e = document.getElementById('employed').checked;
-    console.log(e);
-    var notes = document.getElementById('notes').value;
+    var isEmployed = document.getElementById('employed').checked;
+    var inputNotes = document.getElementById('notes').value;
 
-
-    var out = document.getElementById('outputlist');
+    var outputListItem = document.getElementById('outputlist');
 
     const listItem = document.createElement('li');
-    const name = document.createElement('H3');
-    listItem.appendChild(name);
-    name.textContent = fname + " " + lname;
-    listItem.appendChild(name);
+    const listItemNode_1 = document.createElement('H3');
+    listItemNode_1.textContent = firstName + " " + lastName;
+    listItem.appendChild(listItemNode_1);
 
+    const listItemNode_2 = document.createElement('a');
+    listItemNode_2.textContent = emailAddress;
+    listItem.appendChild(listItemNode_2);
+    listItemNode_2.href = "mailto:" + emailAddress;
 
-    const eadd = document.createElement('p');
-    listItem.appendChild(eadd);
-    eadd.textContent = email;
-    listItem.appendChild(eadd);
+    const listItemNode_3 = document.createElement('p');
+    listItemNode_3.textContent = sex;
+    listItem.appendChild(listItemNode_3);
 
-    const gen = document.createElement('p');
-    listItem.appendChild(gen);
-    gen.textContent = sex;
-    listItem.appendChild(gen);
-
-
-    const emp = document.createElement('p');
-    listItem.appendChild(emp);
-    if (e) {
-        emp.textContent = 'Employed';
+    const listItemNode_4 = document.createElement('p');
+    if (isEmployed) {
+        listItemNode_4.textContent = 'Employed';
     } else {
-        emp.textContent = 'Unemployed';
+        listItemNode_4.textContent = 'Unemployed';
     }
-    listItem.appendChild(emp);
+    listItem.appendChild(listItemNode_4);
+    listItemNode_4.style.backgroundColor = 'yellow';
+    listItemNode_4.style.display = "inline-block"
 
-    const lb = document.createElement('br');
-    listItem.appendChild(lb);
-    listItem.appendChild(lb);
-
-    const note = document.createElement('p');
-    listItem.appendChild(note);
-    note.textContent = notes;
-    listItem.appendChild(note);
-
-    out.appendChild(listItem);
-
-    /*
-        console.log(fname);
-        console.log(lname);
-        console.log(email);
-        
-        console.log(favcolor);
-        console.log(e.checked);
-        console.log(notes);
-    */
-
-    //    document.getElementById("outputlist").append("<li><h3>nashir khatib</h3></li>")
+    const listItemNode_5 = document.createElement('p');
+    listItemNode_5.textContent = inputNotes;
+    listItem.appendChild(listItemNode_5);
+    listItemNode_5.style.marginTop = '15px';
+    outputListItem.appendChild(listItem);
+    outputListItem.style.padding = '20px';
+    outputListItem.style.margin = '10px';
+    outputListItem.style.backgroundColor = 'lightGray';
 });
 
-function getvalue(selected) {
-    var sex = selected;
-    return sex
+
+/*
+function getValues(inputValues) {
+    var values;
 }
+*/

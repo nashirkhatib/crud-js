@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Crud-Operatinon | create remove update delete</title>
 </head>
 
 <body>
     <div id="app">
         <header>
-            <h2 style="height: 10%;">Assigment no :1</h2>
+            <h2>Assigment no :1</h2>
         </header>
         <h3>Register</h3>
         <form class="container" id="registrationForm">
@@ -32,10 +32,10 @@
             </div>
 
             <div class="field">
-                <label for="sex">Sex </label><br>
-                <input type="radio" name="gender" value="male" onclick="getvalue(this.value)" /> Male
-                <input type="radio" name="gender" value="female" onclick="getvalue(this.value)" /> Female
-                <input type="radio" name="gender" value="other" onclick="getvalue(this.value)" /> Other
+                <label>Sex </label><br>
+                <input type="radio" name="gender" value="male" /> Male
+                <input type="radio" name="gender" value="female" /> Female
+                <input type="radio" name="gender" value="other" /> Other
             </div>
 
             <div class="field">
@@ -48,36 +48,31 @@
             <div class="field">
                 <label for="employed">Employed</label>
                 <div>
-                    <input type="checkbox" id="employed" name="employed" value="employed" />
+                    <input type="checkbox" id="employed" name="employed" value="employeed" />
                 </div>
             </div>
 
             <div class="field">
                 <label for="notes">Notes :</label>
-                <div>
-                    <textarea name="notes" id="notes" rows="4"></textarea>
-                </div>
 
-                <button>Submit</button>
-                <input type="reset">Clear Values</input>
+                <textarea name="notes" id="notes" rows="4"></textarea>
             </div>
-        </form>
-        <h3 style="text-align: center;">List</h3>
-        <!-- <div class="list">
+            <div class="buttonField">
+                <button type="submit" form="registrationForm" value="submit" id="submit">Submit</button>
+                <button type="reset" form="registrationForm" value="reset">Clear Values</button>
+            </div>
 
-        </div>
-        -->
-        <ul>
+    </div>
+    </form>
+    <h3>List</h3>
+    <section>
+        <ol id="outputlist">
+        </ol>
+    </section>
 
-        </ul>
-        <div class="output">
-            <ol id="outputlist">
-
-            </ol>
-        </div>
-        <footer style="height: 10%;">
-            <h5>Developed by Nashir</h5>
-        </footer>
+    <footer>
+        <h5>Developed by Nashir</h5>
+    </footer>
     </div>
 
     <script src="script.js"></script>

@@ -1,69 +1,75 @@
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            
-            .container {
-                display: flex;
-                flex-direction: column;
-                padding: 0.50rem;
-                flex-wrap: wrap;
-                align-items: center;
-                background: whitesmoke;
-                border: 1px solid black;
-            }
-            
-            .field {
-                width: 82rem;
-                margin-top: 0.75rem;
-                padding: 0.50rem;
-                background: lightgray;
-            }
-            
-            input {
-                padding: 5px;
-            }
-            
-            header {
-                padding: 5px;
-                background-color: black;
-                color: white;
-                text-align: center;
-            }
-            
-            header h2 {
-                margin: 0;
-                text-align: center;
-            }
-            
-            footer {
-                background-color: black;
-                color: white;
-                text-align: center;
-                padding: 1px;
-            }
-            
-            footer h5 {
-                margin: 0;
-            }
-            
-            #outputlist {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                margin: 0.75rem;
-                background-color: lightgray;
-                color: rgb(7, 7, 7);
-            }
-            
-            #outputlist ol li {
-                list-style-type: decimal;
-                margin: 0.75rem 0.80rem;
-                padding-left: 1rem;
-                justify-content: space-around;
-            }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 10px;
+    background: whitesmoke;
+}
+
+.field {
+    margin-top: 10px;
+    padding: 10px;
+    background: lightgray;
+}
+
+.buttonField {
+    background-color: whitesmoke;
+    margin: 10px 10px;
+}
+
+input {
+    padding: 5px;
+}
+
+header {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    text-align: center;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+footer h5 {
+    margin: 0;
+}
+
+#outputlist {
+    margin: 10px;
+    background-color: whitesmoke;
+    color: rgb(7, 7, 7);
+}
+
+#outputlist ol li {
+    list-style-type: decimal;
+    background-color: lightgray;
+    margin: 10px 15px;
+    padding-left: 15px;
+}
