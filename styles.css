@@ -61,28 +61,41 @@ footer h5 {
     margin: 0;
 }
 
-#outputlist ol {
-    /*0 margin: 10px;*/
-    background-color: rgba(245, 245, 245);
-    color: rgb(7, 7, 7);
-}
-
-#outputlist ol li {
-    background-color: rgba(211, 211, 211);
-}
-
-#option-1 {
-    background-color: red;
-}
-
-#option-2 {
-    background-color: green;
-}
-
-#option-3 {
+.employmentStatus {
+    display: inline-block;
     background-color: yellow;
 }
 
-#option-4 {
-    background-color: blue;
+.notes {
+    margin-top: 15px;
+}
+
+.userList {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(245, 245, 245);
+    list-style-type: none;
+}
+
+.userList li {
+    background-color: lightGray;
+    padding: 10px;
+}
+
+.male {
+    color: blue;
+}
+
+.female {
+    color: pink;
+}
+
+.other {
+    color: green;
+}
+
+.error {
+    color: red;
+    font-size: 0.75rem;
+    margin-top: 4px;
 }

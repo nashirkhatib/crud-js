@@ -1,7 +1,29 @@
-var User = function(firstName, lastName, emailAddress, gender, favcolor, isEmployed, notes) {
+const outputListElement = document.getElementById('userList');
+const submitButton = document.getElementById('submit');
+const firstNameInputElement = document.getElementById('firstName');
+const lastNameInputElement = document.getElementById('lastName');
+const emailInputElement = document.getElementById('email');
+const favcolorInputElement = document.getElementById('favcolor');
+const notesInputElement = document.getElementById('notes');
+const isEmployedInputElement = document.getElementById('employed');
+const genderInputElement = document.getElementsByName('gender');
+
+const firstNameErrorElement = document.getElementById('firstNameError');
+const lastNameErrorElement = document.getElementById('lastNameError');
+const emailErrorElement = document.getElementById('emailError');
+const genderErrorElement = document.getElementById('genderError');
+const favcolorErrorElement = document.getElementById('favcolorError');
+const notesErrorElement = document.getElementById('notesError');
+
+
+const userList = [];
+
+
+
+function User(firstName, lastName, email, gender, favcolor, isEmployed, notes) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.emailAddress = emailAddress;
+    this.email = email;
     this.gender = gender;
     this.favcolor = favcolor;
     this.isEmployed = isEmployed;
@@ -9,114 +31,168 @@ var User = function(firstName, lastName, emailAddress, gender, favcolor, isEmplo
 }
 
 
-const submit = document.getElementById('submit');
-submit.addEventListener('click', (e) => {
+submitButton.addEventListener('click', (e) => {
     e.preventDefault();
-    var sampleuser = getvalues();
-    console.log(sampleuser);
-    createlist(sampleuser);
+    const errors = getErrors();
+    if (errors) {
+        showErrors(errors);
+    } else {
+        const user = getValues();
+        userList.push(user);
+        showUser(user);
+        registrationForm.reset();
+    }
 
-    registrationForm.reset();
 });
 
-function ValidateEmail(emailAddress) {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailAddress)); {
+function validateEmail(email) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
         return (true);
     }
     return (false);
 }
 
-
-function getvalues() {
-    var sex;
-    var firstName = document.getElementById('fname').value;
+function getErrors() {
+    const errors = {};
+    let gender;
+    const firstName = firstNameInputElement.value;
     if (firstName == null || firstName == "") {
-        alert("Fisrt Name can't be blank");
+        errors["firstName"] = "Fisrt Name can't be blank";
     }
 
-    var lastName = document.getElementById('lname').value;
+    const lastName = lastNameInputElement.value;
     if (lastName == null || lastName == "") {
-        alert("Last Name can't be blank");
+        errors["lastName"] = "Last Name can't be blank";
     }
 
-    var emailAddress = document.getElementById('email').value;
-    var validEmailAddress = ValidateEmail(emailAddress);
-    if (validEmailAddress !== true) {
-        alert('Please enter valid meail address');
+    const email = emailInputElement.value;
+    const isEmailValid = validateEmail(email);
+    if (!isEmailValid) {
+        errors["email"] = 'Please enter valid email';
     }
 
-    var inputGender = document.getElementsByName('gender');
-    for (i = 0; i < inputGender.length; i++) {
-        if (inputGender[i].checked)
-            sex = inputGender[i].value;
+    for (i = 0; i < genderInputElement.length; i++) {
+        if (genderInputElement[i].checked)
+            gender = genderInputElement[i].value;
     }
-    if (inputGender[0].checked == false && inputGender[1].checked == false && inputGender[2].checked == false) {
-        alert("Please select Gender");
-    }
-
-    var inputColor = document.getElementById('favcolor').value;
-    if (inputColor == 'none' || inputColor == "") {
-        alert("Please select Your favourite color");
+    if (!gender) {
+        errors["gender"] = "Please select Gender";
     }
 
-    var isEmployed = document.getElementById('employed').checked;
-    if (isEmployed == false) {
-        alert('please update employment status');
+    const favcolor = favcolorInputElement.value;
+    if (favcolor === 'none') {
+        errors["favcolor"] = "Please select Your favourite color";
     }
 
-    var inputNotes = document.getElementById('notes').value;
-    if (inputNotes == null || inputNotes == "") {
-        alert("Please leave some note in notes area!!!");
-    }
-    var user1 = new User(firstName, lastName, emailAddress, sex, inputColor, isEmployed, inputNotes);
-    console.log(user1);
 
-    return user1;
+
+    const notes = notesInputElement.value;
+    if (notes === "") {
+        errors["notes"] = "Please leave some note in notes area!!!";
+    }
+
+    return Object.keys(errors).length ? errors : undefined;
 };
 
-function createlist(sampleuser) {
+function getValues() {
+    let gender;
+    const firstName = firstNameInputElement.value;
 
-    console.log(this);
 
-    var outputListItem = document.getElementById('outputlist');
+    const lastName = lastNameInputElement.value;
 
-    const listItem = document.createElement('li');
-    const listItemNode_1 = document.createElement('H3');
-    listItemNode_1.textContent = sampleuser.firstName + " " + sampleuser.lastName;
-    listItem.appendChild(listItemNode_1);
 
-    const listItemNode_2 = document.createElement('a');
-    listItemNode_2.textContent = sampleuser.emailAddress;
-    listItem.appendChild(listItemNode_2);
-    listItemNode_2.href = "mailto:" + sampleuser.emailAddress;
+    const email = emailInputElement.value;
 
-    const listItemNode_3 = document.createElement('p');
-    listItemNode_3.textContent = sampleuser.gender;
-    listItem.appendChild(listItemNode_3);
 
-    const listItemNodeColor = document.createElement('p');
-    listItemNodeColor.textContent = sampleuser.favcolor;
-    listItem.appendChild(listItemNodeColor);
-
-    const listItemNode_4 = document.createElement('p');
-    if (sampleuser.isEmployed) {
-        listItemNode_4.textContent = 'Employed';
-    } else {
-        listItemNode_4.textContent = 'Unemployed';
+    for (i = 0; i < genderInputElement.length; i++) {
+        if (genderInputElement[i].checked)
+            gender = genderInputElement[i].value;
     }
-    listItem.appendChild(listItemNode_4);
-    listItemNode_4.style.backgroundColor = 'yellow';
-    listItemNode_4.style.display = "inline-block"
 
-    const listItemNode_5 = document.createElement('p');
-    listItemNode_5.textContent = sampleuser.notes;
-    listItem.appendChild(listItemNode_5);
-    listItemNode_5.style.marginTop = '15px';
-    outputListItem.appendChild(listItem);
 
-    outputListItem.style.padding = '20px';
-    listItem.style.padding = '20px';
-    outputListItem.style.margin = '10px';
-    outputListItem.style.backgroundColor = 'rgba(245, 245, 245)';
-    listItem.style.backgroundColor = 'lightGray';
+    const favcolor = favcolorInputElement.value;
+
+
+    const isEmployed = isEmployedInputElement.checked;
+
+
+    const notes = notesInputElement.value;
+
+    const user = new User(firstName, lastName, email, gender, favcolor, isEmployed, notes);
+
+    return user;
+};
+
+function showUser(user) {
+
+    const listItemElement = document.createElement('li');
+    const nameElement = document.createElement('H3');
+    nameElement.textContent = userList.length + ". " + user.firstName + " " + user.lastName;
+    listItemElement.appendChild(nameElement);
+
+    const emailElement = document.createElement('a');
+    emailElement.textContent = user.email;
+    emailElement.href = "mailto:" + user.email;
+    listItemElement.appendChild(emailElement);
+
+    const genderElement = document.createElement('p');
+    genderElement.textContent = user.gender;
+    genderElement.classList.add(user.gender === "male" ? "male" : user.gender === "female" ? "female" : "other");
+
+    listItemElement.appendChild(genderElement);
+
+    const favcolorElement = document.createElement('p');
+    favcolorElement.textContent = user.favcolor;
+    listItemElement.appendChild(favcolorElement);
+
+    const isEmployedElement = document.createElement('p');
+    if (user.isEmployed) {
+        isEmployedElement.textContent = 'Employed';
+    } else {
+        isEmployedElement.textContent = 'Unemployed';
+    }
+    isEmployedElement.classList.add("employmentStatus");
+    listItemElement.appendChild(isEmployedElement);
+
+    const notesElement = document.createElement('p');
+    notesElement.textContent = user.notes;
+    notesElement.classList.add("notes");
+    listItemElement.appendChild(notesElement);
+
+    outputListElement.appendChild(listItemElement);
+
+}
+
+function showErrors(errors) {
+
+    firstNameErrorElement.textContent = "";
+    lastNameErrorElement.textContent = "";
+    emailErrorElement.textContent = "";
+    genderErrorElement.textContent = "";
+    favcolorErrorElement.textContent = "";
+    notesErrorElement.textContent = "";
+
+
+
+    if (errors.firstName) {
+        firstNameErrorElement.textContent = errors.firstName;
+    }
+    if (errors.lastName) {
+        lastNameErrorElement.textContent = errors.lastName;
+    }
+    if (errors.email) {
+        emailErrorElement.textContent = errors.email;
+    }
+    if (errors.gender) {
+        genderErrorElement.textContent = errors.gender;
+    }
+    if (errors.favcolor) {
+        favcolorErrorElement.textContent = errors.favcolor;
+    }
+
+    if (errors.notes) {
+        notesErrorElement.textContent = errors.notes;
+    }
+
 }

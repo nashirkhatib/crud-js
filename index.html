@@ -17,18 +17,21 @@
         <h3>Register</h3>
         <form class="container" id="registrationForm">
             <div class="field">
-                <label for="fname">First Name :</label><br>
-                <input type="text" id="fname" name="fname" placeholder="fisrt name" autofocus />
+                <label for="firstName">First Name :</label><br>
+                <input type="text" id="firstName" name="firstName" placeholder="fisrt name" autofocus />
+                <p id="firstNameError" class="error"></p>
             </div>
 
             <div class="field">
-                <label for="lname">Last Name :</label><br>
-                <input type="text" id="lname" name="lname" placeholder="last name" />
+                <label for="lastName">Last Name :</label><br>
+                <input type="text" id="lastName" name="lastName" placeholder="last name" />
+                <p id="lastNameError" class="error"></p>
             </div>
 
             <div class="field">
                 <label for="email">Email ID :</label><br>
                 <input type="email" id="email" name="email" placeholder="email" />
+                <p id="emailError" class="error"></p>
             </div>
 
             <div class="field">
@@ -36,6 +39,7 @@
                 <input type="radio" name="gender" value="male" /> Male
                 <input type="radio" name="gender" value="female" /> Female
                 <input type="radio" name="gender" value="other" /> Other
+                <p id="genderError" class="error"></p>
             </div>
 
             <div class="field">
@@ -43,12 +47,13 @@
                 <div>
                     <select id="favcolor">
                         <option value="none" selected disabled hidden>Select a color</option>
-                        <option id="option-1" value="Red">Red</option>
-                        <option id="option-2" value="Green">Green</option>
-                        <option id="option-3" value="Yellow">Yellow</option>
-                        <option id="option-4" value="Blue">Blue</option>
+                        <option value="red">Red</option>
+                        <option value="green">Green</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="blue">Blue</option>
                       </select>
                 </div>
+                <p id="favcolorError" class="error"></p>
             </div>
 
             <div class="field">
@@ -64,6 +69,7 @@
                     <textarea name="notes" id="notes" rows="4"></textarea>
                 </div>
 
+                <p id="notesError" class="error"></p>
             </div>
             <div class="buttonField">
                 <button type="submit" form="registrationForm" value="submit" id="submit">Submit</button>
@@ -74,8 +80,8 @@
     </form>
     <h3>List</h3>
     <section>
-        <ol id="outputlist">
-        </ol>
+        <ul id="userList" class="userList">
+        </ul>
     </section>
 
     <footer>
