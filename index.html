@@ -9,7 +9,7 @@
     <title>Crud-Operatinon | create remove update delete</title>
 </head>
 
-<body>
+<body onload="">
     <div id="app">
         <header>
             <h2>Assigment no :1</h2>
@@ -18,7 +18,7 @@
         <form class="container" id="registrationForm">
             <div class="field">
                 <label for="fname">First Name :</label><br>
-                <input type="text" id="fname" name="fname" placeholder="fisrt name" />
+                <input type="text" id="fname" name="fname" placeholder="fisrt name" autofocus />
             </div>
 
             <div class="field">
@@ -60,8 +60,10 @@
 
             <div class="field">
                 <label for="notes">Notes :</label>
+                <div>
+                    <textarea name="notes" id="notes" rows="4"></textarea>
+                </div>
 
-                <textarea name="notes" id="notes" rows="4"></textarea>
             </div>
             <div class="buttonField">
                 <button type="submit" form="registrationForm" value="submit" id="submit">Submit</button>

@@ -4,13 +4,13 @@ submit.addEventListener('click', (e) => {
 
     var sex;
     var firstName = document.getElementById('fname').value;
-    /*if (firstName == null || firstName == "") {
+    if (firstName == null || firstName == "") {
         alert("Fisrt Name can't be blank");
-    }*/
+    }
     var lastName = document.getElementById('lname').value;
-    /*if (lastName == null || lastName == "") {
+    if (lastName == null || lastName == "") {
         alert("Last Name can't be blank");
-    }*/
+    }
     var emailAddress = document.getElementById('email').value;
     var validEmailAddress = ValidateEmail(emailAddress);
     if (validEmailAddress !== true) {
@@ -26,12 +26,10 @@ submit.addEventListener('click', (e) => {
         alert("Please select Gender");
     }
 
-
     var inputColor = document.getElementById('favcolor').value;
     if (inputColor == 'none' || inputColor == "") {
         alert("Please select Your favourite color");
     }
-
 
     var isEmployed = document.getElementById('employed').checked;
     if (isEmployed == false) {
@@ -81,6 +79,7 @@ submit.addEventListener('click', (e) => {
 
     outputListItem.appendChild(listItem);
     outputListItem.style.padding = '20px';
+    listItem.style.padding = '20px';
     outputListItem.style.margin = '10px';
     outputListItem.style.backgroundColor = 'rgba(245, 245, 245)';
     listItem.style.backgroundColor = 'lightGray';
