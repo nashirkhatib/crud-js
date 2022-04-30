@@ -13,17 +13,17 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0 10px;
-    background: whitesmoke;
+    background-color: rgba(245, 245, 245);
 }
 
 .field {
-    margin-top: 10px;
+    margin: 10px 10px;
     padding: 10px;
-    background: lightgray;
+    background-color: rgba(211, 211, 211);
 }
 
 .buttonField {
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245);
     margin: 10px 10px;
 }
 
@@ -61,15 +61,30 @@ footer h5 {
     margin: 0;
 }
 
-#outputlist {
-    margin: 10px;
-    background-color: whitesmoke;
+#outputlist ol {
+    /*0 margin: 10px;*/
+    background-color: rgba(245, 245, 245);
     color: rgb(7, 7, 7);
 }
 
 #outputlist ol li {
-    list-style-type: decimal;
-    background-color: lightgray;
+    background-color: rgba(211, 211, 211);
     margin: 10px 15px;
     padding-left: 15px;
+}
+
+#option-1 {
+    background-color: red;
+}
+
+#option-2 {
+    background-color: green;
+}
+
+#option-3 {
+    background-color: yellow;
+}
+
+#option-4 {
+    background-color: blue;
 }
