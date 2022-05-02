@@ -66,7 +66,6 @@ submitButton.addEventListener('click', (e) => {
             userBeingEdited.firstName = firstNameInputElement.value;
             userBeingEdited.lastName = lastNameInputElement.value;
             userBeingEdited.email = emailInputElement.value;
-
             for (i = 0; i < genderInputElement.length; i++) {
                 if (genderInputElement[i].checked)
                     userBeingEdited.gender = genderInputElement[i].value;
@@ -80,9 +79,7 @@ submitButton.addEventListener('click', (e) => {
             const user = getValues();
             userList.push(user);
         }
-        console.log(userList);
         refreshList();
-        // showUser(user, userList.length);
         registrationForm.reset();
     }
 
@@ -143,7 +140,7 @@ function getValues() {
     const lastName = lastNameInputElement.value;
     const email = emailInputElement.value;
 
-    for (i = 0; i < genderInputElement.length; i++) {
+    for (let i = 0; i < genderInputElement.length; i++) {
         if (genderInputElement[i].checked)
             gender = genderInputElement[i].value;
     }
@@ -199,9 +196,7 @@ function showUser(user, i) {
     deleteButton.innerHTML = "Delete";
     deleteButton.addEventListener('click', (e) => {
         userList.splice(i - 1, 1);
-        //listItemElement.remove();
         refreshList();
-        console.log(userList);
     })
     listItemElement.appendChild(deleteButton);
 
@@ -213,6 +208,13 @@ function showUser(user, i) {
         lastNameInputElement.value = user.lastName;
         emailInputElement.value = user.email;
         genderInputElement.value = user.gender;
+        for (i = 0; i < genderInputElement.length; i++) {
+            if (genderInputElement[i].value === user.gender) {
+                genderInputElement[i].checked = true;
+            }
+        }
+        isEmployedInputElement.checked = user.isEmployed;
+
         favcolorInputElement.value = user.favcolor;
         notesInputElement.value = user.notes;
 
@@ -221,25 +223,6 @@ function showUser(user, i) {
     })
     listItemElement.appendChild(editButton);
 
-    // const saveButton = document.createElement('button');
-    // saveButton.innerHTML = "Save";
-    // saveButton.addEventListener('click', (e) => {
-
-    //     user.firstName = firstNameInputElement.value;
-    //     user.lastName = lastNameInputElement.value;
-    //     user.email = emailInputElement.value;
-
-    //     for (i = 0; i < genderInputElement.length; i++) {
-    //         if (genderInputElement[i].checked)
-    //             user.gender = genderInputElement[i].value;
-    //     }
-    //     user.favcolor = favcolorInputElement.value;
-    //     user.isEmployed = isEmployedInputElement.checked;
-    //     user.notes = notesInputElement.value;
-    //     refreshList();
-    //     registrationForm.reset();
-    // })
-    // listItemElement.appendChild(saveButton);
 
     outputListElement.appendChild(listItemElement);
 }
@@ -282,10 +265,6 @@ function showErrors(errors) {
 }
 
 function refreshList() {
-    // listItemElement.remove();
-    // while (outputListElement.firstChild) {
-    //     outputListElement.removeChild(outputListElement.firstChild);
-    // }
     outputListElement.innerHTML = "";
     for (let i = 0; i < userList.length; i++) {
         showUser(userList[i], i + 1);
