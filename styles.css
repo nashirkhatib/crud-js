@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 10px;
+    background-color: rgba(245, 245, 245);
+}
+
+.field {
+    margin: 10px 10px;
+    padding: 10px;
+    background-color: rgba(211, 211, 211);
+}
+
+.buttonField {
+    background-color: rgba(245, 245, 245);
+    margin: 10px 10px;
+}
+
+input {
+    padding: 5px;
+}
+
+header {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    text-align: center;
+}
+
+.subHeading {
+    margin: 10px 0;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+footer h5 {
+    margin: 0;
+}
+
+.employmentStatus {
+    display: inline-block;
+    background-color: yellow;
+}
+
+.notes {
+    margin-top: 15px;
+}
+
+.userList {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(245, 245, 245);
+    list-style-type: none;
+}
+
+.userList li {
+    background-color: lightGray;
+    padding: 10px;
+}
+
+.male {
+    color: blue;
+}
+
+.female {
+    color: pink;
+}
+
+.other {
+    color: green;
+}
+
+.error {
+    color: red;
+    font-size: 0.75rem;
+    margin-top: 4px;
+}

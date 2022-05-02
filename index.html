@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Crud-Operatinon | create remove update delete</title>
+</head>
+
+<body)>
+    <div id="app">
+        <header>
+            <h2>Assigment no :1</h2>
+        </header>
+        <h3 class="subHeading">Register</h3>
+        <form class="container" id="registrationForm">
+            <div class="field">
+                <label for="firstName">First Name :</label><br>
+                <input type="text" id="firstName" name="firstName" placeholder="fisrt name" autofocus />
+                <p id="firstNameError" class="error"></p>
+            </div>
+
+            <div class="field">
+                <label for="lastName">Last Name :</label><br>
+                <input type="text" id="lastName" name="lastName" placeholder="last name" />
+                <p id="lastNameError" class="error"></p>
+            </div>
+
+            <div class="field">
+                <label for="email">Email ID :</label><br>
+                <input type="email" id="email" name="email" placeholder="email" />
+                <p id="emailError" class="error"></p>
+            </div>
+
+            <div class="field">
+                <label>Sex </label><br>
+                <input type="radio" name="gender" value="male" /> Male
+                <input type="radio" name="gender" value="female" /> Female
+                <input type="radio" name="gender" value="other" /> Other
+                <p id="genderError" class="error"></p>
+            </div>
+
+            <div class="field">
+                <label for="favcolor">Favorite Color:</label>
+                <div>
+                    <select id="favcolor">
+                        <option value="none" selected disabled hidden>Select a color</option>
+                        <option value="red">Red</option>
+                        <option value="green">Green</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="blue">Blue</option>
+                      </select>
+                </div>
+                <p id="favcolorError" class="error"></p>
+            </div>
+
+            <div class="field">
+                <label for="employed">Employed</label>
+                <div>
+                    <input type="checkbox" id="employed" name="employed" value="employeed" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="notes">Notes :</label>
+                <div>
+                    <textarea name="notes" id="notes" rows="4"></textarea>
+                </div>
+
+                <p id="notesError" class="error"></p>
+            </div>
+            <div class="buttonField">
+                <button type="submit" form="registrationForm" value="submit" id="submit">Submit</button>
+                <button type="reset" form="registrationForm" value="reset">Clear Values</button>
+            </div>
+
+    </div>
+    </form>
+    <h3 class="subHeading">List</h3>
+    <section>
+        <ul id="userList" class="userList">
+        </ul>
+    </section>
+
+    <footer>
+        <h5>Developed by Nashir</h5>
+    </footer>
+    </div>
+
+    <script src="script.js"></script>
+    </body>
+
+</html>
